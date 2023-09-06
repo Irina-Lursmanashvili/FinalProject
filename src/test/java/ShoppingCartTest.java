@@ -1,21 +1,15 @@
-import StepObject.AddToCartPageSteps;
+import StepObject.ShoppingCartPageSteps;
 import Utils.ChromeRunner;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import jdk.jfr.Description;
 import org.testng.annotations.Test;
 
-import static DataObject.AddToCartPageData.*;
-import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selectors.byAttribute;
-import static com.codeborne.selenide.Selenide.*;
+import static DataObject.ShoppingCartPageData.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class AddToCartsTest extends ChromeRunner {
-    AddToCartPageSteps addToCartPageSteps = new AddToCartPageSteps();
+public class ShoppingCartTest extends ChromeRunner {
+    ShoppingCartPageSteps addToCartPageSteps = new ShoppingCartPageSteps();
 
     @Test
     @Description("ქეისი 1- კალათაში არსებული პროდუქტების ფასის ჯამის შემოწმება")
@@ -58,4 +52,5 @@ public class AddToCartsTest extends ChromeRunner {
     }
 
    //................... ასერშენებია გასაწერი აქ და დურეიშენებია გასაწერი სტეპებში.............
+    //გვერდის სახელია გასასწორებელი.
 }

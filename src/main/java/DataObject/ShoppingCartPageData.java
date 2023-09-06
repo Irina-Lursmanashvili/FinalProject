@@ -1,6 +1,6 @@
 package DataObject;
 
-public interface AddToCartPageData {
+public interface ShoppingCartPageData {
     String
 
             authorizationEmail = "irina.lursmanashvili.1@gmail.com",

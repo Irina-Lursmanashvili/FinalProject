@@ -1,77 +1,74 @@
 package StepObject;
 
-import DataObject.AddToCartPageData;
 import PageObject.AddToCartPage;
-import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class AddToCartPageSteps extends AddToCartPage {
+public class ShoppingCartPageSteps extends AddToCartPage {
 
     @Step("ავტორიზაციის გვერდზე გადასვლა")
-    public AddToCartPageSteps GoToAuthorizationPage() {
+    public ShoppingCartPageSteps GoToAuthorizationPage() {
         authorizationButton.click();
         return this;
     }
 
     @Step("ელფოსტის ველის შევსება მნიშვნელობით: {Email}")
-    public AddToCartPageSteps fillEmail(String Email) {
+    public ShoppingCartPageSteps fillEmail(String Email) {
         authorizationEmailInPut.setValue(Email);
         return this;
     }
 
     @Step("პაროლის ველის შევსება მნიშვნელობით: {Password}")
-    public AddToCartPageSteps fillPassword(String Password) {
+    public ShoppingCartPageSteps fillPassword(String Password) {
         authorizationPasswordInPut.setValue(Password);
         return this;
     }
 
     @Step("ავტორიზაციის ღილაკზე ხელის დაჭერა")
-    public AddToCartPageSteps clickLoginButton() {
+    public ShoppingCartPageSteps clickLoginButton() {
         authorizationButton.click();
         return this;
     }
 
     @Step("პროდუქციის გვერდზე გადასვლა")
-    public AddToCartPageSteps GoToProducts() {
+    public ShoppingCartPageSteps GoToProducts() {
         allProductsPage.click();
         return this;
     }
 
     @Step("სერჩის ველში ჩადგომა და ავტორის მოძებნა მნიშვნელობით: {AuthorName}")
-    public AddToCartPageSteps AuthorSearch(String AuthorName) {
+    public ShoppingCartPageSteps AuthorSearch(String AuthorName) {
         authorSearch.setValue(AuthorName).click();
         return this;
     }
 
     @Step("პირველი წიგნის კალათაში დამატება")
-    public AddToCartPageSteps AddToCartOne() {
+    public ShoppingCartPageSteps AddToCartOne() {
         addToCartOne.click();
         return this;
     }
 
     @Step("\"წიგნი წარმატებით დაემატა\"პოპ აპის გამორთვა")
-    public AddToCartPageSteps ClosePopUp() {
+    public ShoppingCartPageSteps ClosePopUp() {
         closeAddBookPopUp.click();
         return this;
     }
 
     @Step(" მეორე წიგნის კალათაში დამატება")
-    public AddToCartPageSteps AddToCartTwo() {
+    public ShoppingCartPageSteps AddToCartTwo() {
         addToCartTwo.click();
         return this;
     }
 
     @Step("კალათაში გადასვლა")
-    public AddToCartPageSteps GoToShoppingCartPage() {
+    public ShoppingCartPageSteps GoToShoppingCartPage() {
         GoToShoppingCart.click();
         return this;
     }
 
     @Step(" გავიგოთ კალათაში დამატებული პროდუქტების ფასის ჯამი სწორია თუ არა")
-    public AddToCartPageSteps CheckSum() {
+    public ShoppingCartPageSteps CheckSum() {
 
         String TotalPrice = $(".total_price").getText();
         String totalPrice = TotalPrice.replaceAll("₾", "");
@@ -97,7 +94,7 @@ public class AddToCartPageSteps extends AddToCartPage {
     }
 
     @Step("საკურიერო მომსახურების საფასურის დათვლა")
-    public AddToCartPageSteps CheckcourierservicePrice() {
+    public ShoppingCartPageSteps CheckcourierservicePrice() {
 
 
         String TotalPrice = $(".total_price").getText();
@@ -131,7 +128,7 @@ public class AddToCartPageSteps extends AddToCartPage {
     }
 
     @Step("კალათაში არსებული პროდუქტების წაშლა")
-    public AddToCartPageSteps DeleteItems() {
+    public ShoppingCartPageSteps DeleteItems() {
 
 
         for (int i = 0; i < deleteItems.size(); i++) {
