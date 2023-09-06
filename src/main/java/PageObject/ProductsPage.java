@@ -18,7 +18,8 @@ public class ProductsPage {
             authorSearchInPut = $("#authorsearch"),
             firstProductPrice = $(".price").$(byTagName("span"), 0);
     public ElementsCollection productsPrice = $$(".price");
-    public ElementsCollection bestSellersProductsPrice = $$(".price");
+
+    //....... ეს ვფიქრობ წასაშლელია, რადგან არსად არ ვიყენებ  - public ElementsCollection bestSellersProductsPrice = $$(".price");
 }
 
 

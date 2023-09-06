@@ -12,7 +12,7 @@ public class RegistrationPageTest extends ChromeRunner {
     RegistrationPageSteps registrationPageSteps = new RegistrationPageSteps();
 
     @Test
-    @Description("რეგისტრაციის შემოწმება")
+    @Description("ქეისი 1- რეგისტრაციის შემოწმება სწორი მონაცემებით")
     @Severity(SeverityLevel.CRITICAL)
     public void RegistrationCheck() {
         registrationPageSteps.GoToRegistrationPage()
@@ -29,7 +29,7 @@ public class RegistrationPageTest extends ChromeRunner {
     }
 
     @Test
-    @Description("რეგისტრაციის შემოწმება")
+    @Description("ქეისი 2- რეგისტრაციის შემოწმება არასწორი მონაცემებით, პაროლი განმეორებით ჩავწეროთ არასწორად")
     @Severity(SeverityLevel.CRITICAL)
     public void RegistrationCheckNegativeCase() {
         registrationPageSteps.GoToRegistrationPage()
