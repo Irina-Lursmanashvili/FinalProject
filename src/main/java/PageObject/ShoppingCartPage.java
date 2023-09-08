@@ -19,7 +19,8 @@ public class AddToCartPage {
             addToCartOne = $(byAttribute("onclick", "addToCart(257)")),
             closeAddBookPopUp = $(".close"),
             addToCartTwo = $(byAttribute("onclick", "addToCart(1370)")),
-            GoToShoppingCart = $(".fa-shopping-cart");
+            GoToShoppingCart = $(".fa-shopping-cart"),
+            LastCourierPrice=$(".courierPrice").$(byAttribute("span"," 0  ₾"));
    public ElementsCollection BooksPrice = $$(".price");
    public ElementsCollection deleteItems = $$(".delete-item");
 
