@@ -16,11 +16,13 @@ public class ProductsPageSteps extends ProductsPage {
         allProductsPage.click();
         return this;
     }
+
     @Step("პროდუქციის ფასის კლების მიხედვით დალაგება")
     public ProductsPageSteps SortPriceDesc() {
         sortPriceDesc.click();
         return this;
     }
+
     @Step(" შემოწმება პროდუქცია ფასის კლების მიხედვით სწორად დალაგდა თუ არა")
     public ProductsPageSteps CheckSort() {
 
@@ -39,21 +41,21 @@ public class ProductsPageSteps extends ProductsPage {
             float first_product = Float.parseFloat(FirstProduct);
             float second_product = Float.parseFloat(SecondProduct);
 
-            Assert.assertTrue(first_product >= second_product, "ფასის კლებადობის შემოწმება");
+            Assert.assertTrue(first_product >= second_product,
+                    "პროდუქცია ფასის კლებადობის მიხედვით დალაგება");
             System.out.println(FirstProduct);
         }
         return this;
     }
+
     @Step("ბესთსელერების გვერდზე გადასვლა")
     public ProductsPageSteps GoToBestSeller() {
         bestSellerPage.click();
         return this;
     }
 
-    @Step("შემოწმება სწორად აქვს თუ არა წიგნს ფასი დაკლებული")
+    @Step("შემოწმება - სწორად აქვს თუ არა წიგნს ფასი დაკლებული")
     public ProductsPageSteps CheckDiscount() {
-
-        // ..........ეს რაში მჭირდება?  არაფერში სავარაუდოდ- ElementsCollection bestSellersProductsPrice = $$(".price");
 
         String oldPrice = $(".old-price").getText();
         String old_Price = oldPrice.replaceAll("₾", "");
@@ -71,9 +73,13 @@ public class ProductsPageSteps extends ProductsPage {
         System.out.println(CurrentPrice);
 
 
-        if (OldPrice - Math.round((OldPrice * Percent) / 100 * 10.0) / 10.0 == CurrentPrice) {
+       /* if (OldPrice - Math.round((OldPrice * Percent) / 100 * 10.0) / 10.0 == CurrentPrice) {
             System.out.println("ფასდაკლება სწორია");
-        } else System.out.println("ფასდაკლება არასწორია");
+        } else System.out.println("ფასდაკლება არასწორია");*/
+
+        Assert.assertTrue(OldPrice - Math.round((OldPrice * Percent) / 100 * 10.0) / 10.0 == CurrentPrice,
+                "ფასდაკლების შემოწმება"); //ასერშენებში ამის გაწერა შეიძლება თუ არა საკითხავია
+
         return this;
     }
 

@@ -1,8 +1,10 @@
 import StepObject.ShoppingCartPageSteps;
 import Utils.ChromeRunner;
+import com.codeborne.selenide.Condition;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import jdk.jfr.Description;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static DataObject.ShoppingCartPageData.*;
@@ -24,6 +26,7 @@ public class ShoppingCartTest extends ChromeRunner {
                 .AddToCartOne()
                 .ClosePopUp()
                 .AuthorSearch(authorSearchTwo)
+                .AddToCartTwo()
                 .ClosePopUp()
                 .GoToShoppingCartPage()
                 .CheckSum()
@@ -32,7 +35,7 @@ public class ShoppingCartTest extends ChromeRunner {
 
     @Test
     @Description(" ქეისი 2- კალათაში არსებული პროდუქტების ფასის ჯამის მიხედვით საკურიერო მომსახურების ფასის განსაზღვრა")
-    @Severity(SeverityLevel.NORMAL)
+    @Severity(SeverityLevel.CRITICAL)
     public void CourierservicePrice() {
         addToCartPageSteps.GoToAuthorizationPage()
                 .fillEmail(authorizationEmail)
@@ -43,14 +46,11 @@ public class ShoppingCartTest extends ChromeRunner {
                 .AddToCartOne()
                 .ClosePopUp()
                 .AuthorSearch(authorSearchTwo)
+                .AddToCartTwo()
                 .ClosePopUp()
                 .GoToShoppingCartPage()
                 .CheckSum()
                 .CheckcourierservicePrice()
                 .DeleteItems();
-
     }
-
-   //................... ასერშენებია გასაწერი აქ და დურეიშენებია გასაწერი სტეპებში.............
-    //გვერდის სახელია გასასწორებელი.
 }

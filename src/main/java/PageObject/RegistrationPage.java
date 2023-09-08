@@ -15,8 +15,9 @@ public class RegistrationPage {
             birthDateInPut = $("#datepicker"),
             emailInPut = $(byName("registremail")),
             phoneNumberInPut = $(byName("phone")),
-            passwordInput = $(byAttribute("placeholder", "პაროლი")),
-            confirmPasswordInput = $(byName("password_confirmation")),
+            passwordInput = $(byAttribute("placeholder", "პაროლი"), 1),
+            confirmPasswordInput = $(byAttribute("placeholder", "პაროლის დადასტურება")),
             AgreeTermsInPut = $(byText("ვეთანხმები საიტის")),
-            registrationButton = $(byValue("გაგზავნა"));
+            registrationButton = $(byValue("გაგზავნა")),
+            ErrorMessagePassword=$(byText("პაროლები უნდა ემთხვეოდეს"));
 }

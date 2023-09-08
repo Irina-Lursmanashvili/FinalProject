@@ -22,16 +22,15 @@ public class ProductsPageTest extends ChromeRunner {
                 .CheckSort();
 
     }
+
     @Test
     @Description("ქეისი 2- ერთი პროდუქტის საფუძველზე გავიგოთ ფასდაკლება სწორად ანგარიშდება თუ არა")
     @Severity(SeverityLevel.NORMAL)
-    public void discountCheck(){
+    public void discountCheck() {
         productsPageSteps.GoToProducts()
                 .GoToBestSeller()
                 .CheckDiscount();
     }
-
-   //...............................ასერშენები მაქვს გასაწერი მეორე ქეისზე, პირველზე სტეპებში მიწერია
 
 }
 

@@ -19,7 +19,7 @@ public class ProductsPage {
             firstProductPrice = $(".price").$(byTagName("span"), 0);
     public ElementsCollection productsPrice = $$(".price");
 
-    //....... ეს ვფიქრობ წასაშლელია, რადგან არსად არ ვიყენებ  - public ElementsCollection bestSellersProductsPrice = $$(".price");
+
 }
 
 

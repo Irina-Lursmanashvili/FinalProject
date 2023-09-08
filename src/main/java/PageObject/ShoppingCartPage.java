@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class AddToCartPage {
+public class ShoppingCartPage {
     public SelenideElement
 
             authorizationButton = $(".autorization-btn"),
@@ -18,9 +18,9 @@ public class AddToCartPage {
             authorSearch = $("#authorsearch"),
             addToCartOne = $(byAttribute("onclick", "addToCart(257)")),
             closeAddBookPopUp = $(".close"),
-            addToCartTwo = $(byAttribute("onclick", "addToCart(1370)")),
-            GoToShoppingCart = $(".fa-shopping-cart"),
-            LastCourierPrice=$(".courierPrice").$(byAttribute("span"," 0  ₾"));
+            addToCartTwo = $(byAttribute("data-book-id", "1370")),
+            GoToShoppingCart = $(".fa-shopping-cart");
+
    public ElementsCollection BooksPrice = $$(".price");
    public ElementsCollection deleteItems = $$(".delete-item");
 

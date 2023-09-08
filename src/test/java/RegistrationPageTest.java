@@ -1,8 +1,10 @@
 import StepObject.RegistrationPageSteps;
 import Utils.ChromeRunner;
+import com.codeborne.selenide.Condition;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import jdk.jfr.Description;
+import org.checkerframework.checker.units.qual.A;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,7 +15,7 @@ public class RegistrationPageTest extends ChromeRunner {
 
     @Test
     @Description("ქეისი 1- რეგისტრაციის შემოწმება სწორი მონაცემებით")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.BLOCKER)
     public void RegistrationCheck() {
         registrationPageSteps.GoToRegistrationPage()
                 .fillName(firstName)
@@ -21,16 +23,17 @@ public class RegistrationPageTest extends ChromeRunner {
                 .fillBirthDate(birthDate)
                 .fillEmail(email)
                 .fillPhoneNumber(phoneNumber)
-                .fillPassword(password)
+                .fillPassword(RegistrationPassword)
                 .fillConfirmPassword(confirmPassword)
                 .fillAgreeTerms()
                 .ClickRegistrationButton();
-        Assert.assertEquals(registrationPageSteps.phoneNumberInPut.getText(), phoneNumber);
+        Assert.assertEquals(registrationPageSteps.phoneNumberInPut.getValue(), phoneNumber,
+                "მობილური ნომრის ვალიდაცია");
     }
 
     @Test
-    @Description("ქეისი 2- რეგისტრაციის შემოწმება არასწორი მონაცემებით, პაროლი განმეორებით ჩავწეროთ არასწორად")
-    @Severity(SeverityLevel.CRITICAL)
+    @Description("ქეისი 2- რეგისტრაციის შემოწმება არასწორი მონაცემით, პაროლი განმეორებით ჩავწეროთ არასწორად")
+    @Severity(SeverityLevel.BLOCKER)
     public void RegistrationCheckNegativeCase() {
         registrationPageSteps.GoToRegistrationPage()
                 .fillName(firstName)
@@ -38,14 +41,13 @@ public class RegistrationPageTest extends ChromeRunner {
                 .fillBirthDate(birthDate)
                 .fillEmail(email)
                 .fillPhoneNumber(phoneNumber)
-                .fillPassword(password)
-                .fillConfirmPassword(wrongConfirmPassword)
+                .fillPassword(RegistrationPassword)
+                .fillWrongConfirmPassword(wrongConfirmPassword)
                 .fillAgreeTerms()
                 .ClickRegistrationButton();
-        Assert.assertEquals(registrationPageSteps.phoneNumberInPut.getText(), phoneNumber);
+        Assert.assertTrue(registrationPageSteps.ErrorMessagePassword.is(Condition.visible),
+                "პაროლის არასწორი მონაცემით დადასტურება");
     }
-
-
 
 
 }

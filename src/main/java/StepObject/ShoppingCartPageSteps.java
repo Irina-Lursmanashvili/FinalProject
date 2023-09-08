@@ -1,11 +1,12 @@
 package StepObject;
 
-import PageObject.AddToCartPage;
+import PageObject.ShoppingCartPage;
 import io.qameta.allure.Step;
+import org.testng.Assert;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class ShoppingCartPageSteps extends AddToCartPage {
+public class ShoppingCartPageSteps extends ShoppingCartPage {
 
     @Step("ავტორიზაციის გვერდზე გადასვლა")
     public ShoppingCartPageSteps GoToAuthorizationPage() {
@@ -27,7 +28,7 @@ public class ShoppingCartPageSteps extends AddToCartPage {
 
     @Step("ავტორიზაციის ღილაკზე ხელის დაჭერა")
     public ShoppingCartPageSteps clickLoginButton() {
-        authorizationButton.click();
+        submitInPUT.click();
         return this;
     }
 
@@ -39,7 +40,7 @@ public class ShoppingCartPageSteps extends AddToCartPage {
 
     @Step("სერჩის ველში ჩადგომა და ავტორის მოძებნა მნიშვნელობით: {AuthorName}")
     public ShoppingCartPageSteps AuthorSearch(String AuthorName) {
-        authorSearch.setValue(AuthorName).click();
+        authorSearch.setValue(AuthorName).pressEnter();
         return this;
     }
 
@@ -67,7 +68,7 @@ public class ShoppingCartPageSteps extends AddToCartPage {
         return this;
     }
 
-    @Step(" გავიგოთ კალათაში დამატებული პროდუქტების ფასის ჯამი სწორია თუ არა")
+    @Step(" კალათაში დამატებული პროდუქტების ფასების ჯამის გაგება")
     public ShoppingCartPageSteps CheckSum() {
 
         String TotalPrice = $(".total_price").getText();
@@ -84,11 +85,13 @@ public class ShoppingCartPageSteps extends AddToCartPage {
             sum += Float.parseFloat(Book_Price);
         }
 
-        if (sum == Total_Price) {
+        /*if (sum == Total_Price) {
             System.out.println("ჯამი სწორია");
         } else {
             System.out.println("ჯამი არასწორია");
-        }
+        }*/
+
+        Assert.assertTrue(sum == Total_Price, "პროდუქტების ფასების ჯამის შემოწმება");
 
         return this;
     }
@@ -118,11 +121,13 @@ public class ShoppingCartPageSteps extends AddToCartPage {
         float Courier_Price = Float.parseFloat(courier_Price);
 
 
-        if (sum > 35) {
+        /*if (sum > 35) {
             if (Courier_Price != 0)
                 System.out.println("საკურუერო მომსახურების საფასური არ განულდა");
             else System.out.println("საკურუერო მომსახურების საფასური განულდა");
-        }
+        }*/
+
+        Assert.assertTrue(sum > 35 && Courier_Price != 0, "საკურიერო მომსახურების საფასური სწორია");
 
         return this;
     }

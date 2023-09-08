@@ -4,13 +4,14 @@ import PageObject.RegistrationPage;
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class RegistrationPageSteps extends RegistrationPage {
     @Step("რეგისტრაციის გვერდზე გადასვლა")
     public RegistrationPageSteps GoToRegistrationPage() {
         authorizationButton.click();
-        sleep(5000);
         return this;
     }
 
@@ -48,13 +49,18 @@ public class RegistrationPageSteps extends RegistrationPage {
     @Step("პაროლის ველის შევსება მნიშვნელობით: {Password}")
     public RegistrationPageSteps fillPassword(String Password) {
         passwordInput.setValue(Password);
-        sleep(5000);
         return this;
     }
 
     @Step("პაროლის დადასტურება მნიშვნელობით: {ConfirmPassword}")
     public RegistrationPageSteps fillConfirmPassword(String ConfirmPassword) {
         confirmPasswordInput.setValue(ConfirmPassword);
+        return this;
+    }
+
+    @Step("პაროლის დადასტურება მნიშვნელობით: {WrongConfirmPassword}")
+    public RegistrationPageSteps fillWrongConfirmPassword(String WrongConfirmPassword) {
+        confirmPasswordInput.setValue(WrongConfirmPassword);
         return this;
     }
 

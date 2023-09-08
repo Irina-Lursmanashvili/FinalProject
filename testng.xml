@@ -5,6 +5,7 @@
         <classes>
             <class name="ProductsPageTest"/>
             <class name="RegistrationPageTest"/>
+            <class name="ShoppingCartTest"/>
         </classes>
     </test>
 
