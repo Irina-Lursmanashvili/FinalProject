@@ -34,7 +34,7 @@ public class RegistrationPageSteps extends RegistrationPage {
 
     }
 
-    @Step("ელ.ფოსტის ველის შევსება მნიშვნელობით: {Email}")
+    @Step("ელფოსტის ველის შევსება მნიშვნელობით: {Email}")
     public RegistrationPageSteps fillEmail(String Email) {
         emailInPut.setValue(Email);
         return this;
@@ -70,7 +70,7 @@ public class RegistrationPageSteps extends RegistrationPage {
         return this;
     }
 
-    @Step("რეგისტრაციის ღილაკზე დაჭერა")
+    @Step("რეგისტრაციის ღილაკზე ხელის დაჭერა")
     public RegistrationPageSteps ClickRegistrationButton() {
         registrationButton.click();
         return this;

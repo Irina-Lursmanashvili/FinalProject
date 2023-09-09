@@ -14,9 +14,7 @@ public class ProductsPage {
 
             allProductsPage = $(byLinkText("პროდუქცია")),
             bestSellerPage = $(byLinkText("ბესტსელერი")),
-            sortPriceDesc = $(byLinkText("ფასის კლების მიხედვით")),
-            authorSearchInPut = $("#authorsearch"),
-            firstProductPrice = $(".price").$(byTagName("span"), 0);
+            sortPriceDesc = $(byLinkText("ფასის კლების მიხედვით"));
     public ElementsCollection productsPrice = $$(".price");
 
 

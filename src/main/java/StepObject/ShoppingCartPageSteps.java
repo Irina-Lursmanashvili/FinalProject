@@ -50,13 +50,13 @@ public class ShoppingCartPageSteps extends ShoppingCartPage {
         return this;
     }
 
-    @Step("\"წიგნი წარმატებით დაემატა\"პოპ აპის გამორთვა")
+    @Step("\"წიგნი წარმატებით დაემატა\"პოპ აპის დახურვა")
     public ShoppingCartPageSteps ClosePopUp() {
         closeAddBookPopUp.click();
         return this;
     }
 
-    @Step(" მეორე წიგნის კალათაში დამატება")
+    @Step("მეორე წიგნის კალათაში დამატება")
     public ShoppingCartPageSteps AddToCartTwo() {
         addToCartTwo.click();
         return this;
@@ -68,7 +68,7 @@ public class ShoppingCartPageSteps extends ShoppingCartPage {
         return this;
     }
 
-    @Step(" კალათაში დამატებული პროდუქტების ფასების ჯამის გაგება")
+    @Step("კალათაში დამატებული პროდუქტების ფასების ჯამის შემოწმება")
     public ShoppingCartPageSteps CheckSum() {
 
         String TotalPrice = $(".total_price").getText();
@@ -84,28 +84,14 @@ public class ShoppingCartPageSteps extends ShoppingCartPage {
 
             sum += Float.parseFloat(Book_Price);
         }
-
-        /*if (sum == Total_Price) {
-            System.out.println("ჯამი სწორია");
-        } else {
-            System.out.println("ჯამი არასწორია");
-        }*/
-
         Assert.assertTrue(sum == Total_Price, "პროდუქტების ფასების ჯამის შემოწმება");
-
         return this;
     }
 
     @Step("საკურიერო მომსახურების საფასურის დათვლა")
     public ShoppingCartPageSteps CheckcourierservicePrice() {
 
-
-        String TotalPrice = $(".total_price").getText();
-        String totalPrice = TotalPrice.replaceAll("₾", "");
-        float Total_Price = Float.parseFloat(totalPrice);
-
         float sum = 0;
-
         for (int i = 0; i < BooksPrice.size(); i++) {
 
             String BookPrice = $(".price", i).getText();
@@ -114,21 +100,11 @@ public class ShoppingCartPageSteps extends ShoppingCartPage {
             sum += Float.parseFloat(Book_Price);
         }
 
-        //.......................ეს ფორ ციკლი  ორივე ტესტქეისში მიწერია და ცალკე სტეპად ხო არ უნდა გავიტანო?........
-
         String courierPrice = $(".courierPrice").getText();
         String courier_Price = courierPrice.replaceAll("₾", "");
         float Courier_Price = Float.parseFloat(courier_Price);
 
-
-        /*if (sum > 35) {
-            if (Courier_Price != 0)
-                System.out.println("საკურუერო მომსახურების საფასური არ განულდა");
-            else System.out.println("საკურუერო მომსახურების საფასური განულდა");
-        }*/
-
-        Assert.assertTrue(sum > 35 && Courier_Price != 0, "საკურიერო მომსახურების საფასური სწორია");
-
+        Assert.assertTrue(sum > 35 && Courier_Price == 0, "საკურიერო მომსახურების საფასურის გაგება");
         return this;
     }
 
@@ -140,7 +116,7 @@ public class ShoppingCartPageSteps extends ShoppingCartPage {
             $(".delete-item", i).click();
         }
         return this;
-    } //ლოგაუთი მაქვს დარჩენილი და უნდა გავაკეთო.......................
+    }
 
 }
 

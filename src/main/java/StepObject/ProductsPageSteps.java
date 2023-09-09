@@ -23,12 +23,8 @@ public class ProductsPageSteps extends ProductsPage {
         return this;
     }
 
-    @Step(" შემოწმება პროდუქცია ფასის კლების მიხედვით სწორად დალაგდა თუ არა")
+    @Step("პროდუქცია დალაგდა თუ არა სწორად ფასის კლების მიხედვით")
     public ProductsPageSteps CheckSort() {
-
-
-        String firstProduct = firstProductPrice.getText();
-        System.out.println(firstProduct);
 
         for (int i = 0; i < productsPrice.size() - 1; i++) {
 
@@ -42,8 +38,7 @@ public class ProductsPageSteps extends ProductsPage {
             float second_product = Float.parseFloat(SecondProduct);
 
             Assert.assertTrue(first_product >= second_product,
-                    "პროდუქცია ფასის კლებადობის მიხედვით დალაგება");
-            System.out.println(FirstProduct);
+                    "პროდუქციის ფასის კლების მიხედვით დალაგება");
         }
         return this;
     }
@@ -60,29 +55,19 @@ public class ProductsPageSteps extends ProductsPage {
         String oldPrice = $(".old-price").getText();
         String old_Price = oldPrice.replaceAll("₾", "");
         float OldPrice = Float.parseFloat(old_Price);
-        System.out.println(OldPrice);
 
         String percent = $(".sale").getText();
         String withoutPercentSymbol = percent.replaceAll("%", "");
         float Percent = Float.parseFloat(withoutPercentSymbol) * -1;
-        System.out.println(Percent);
 
         String currentPrice = $(".price").$(byTagName("span"), 0).getText();
         String current_Price = currentPrice.replaceAll("₾", "");
         float CurrentPrice = Float.parseFloat(current_Price);
-        System.out.println(CurrentPrice);
-
-
-       /* if (OldPrice - Math.round((OldPrice * Percent) / 100 * 10.0) / 10.0 == CurrentPrice) {
-            System.out.println("ფასდაკლება სწორია");
-        } else System.out.println("ფასდაკლება არასწორია");*/
 
         Assert.assertTrue(OldPrice - Math.round((OldPrice * Percent) / 100 * 10.0) / 10.0 == CurrentPrice,
-                "ფასდაკლების შემოწმება"); //ასერშენებში ამის გაწერა შეიძლება თუ არა საკითხავია
-
+                "ფასდაკლების შემოწმება");
         return this;
     }
-
 
 }
 
