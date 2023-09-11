@@ -19,5 +19,5 @@ public class RegistrationPage {
             confirmPasswordInput = $(byAttribute("placeholder", "პაროლის დადასტურება")),
             AgreeTermsInPut = $(byText("ვეთანხმები საიტის")),
             registrationButton = $(byValue("გაგზავნა")),
-            ErrorMessagePassword=$(byText("პაროლები უნდა ემთხვეოდეს"));
+            ErrorMessagePassword = $(byText("პაროლები უნდა ემთხვეოდეს"));
 }

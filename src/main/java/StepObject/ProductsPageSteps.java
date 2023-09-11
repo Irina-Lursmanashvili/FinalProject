@@ -64,7 +64,7 @@ public class ProductsPageSteps extends ProductsPage {
         String current_Price = currentPrice.replaceAll("₾", "");
         float CurrentPrice = Float.parseFloat(current_Price);
 
-        Assert.assertTrue(OldPrice - Math.round((OldPrice * Percent) / 100 * 10.0) / 10.0 == CurrentPrice,
+        Assert.assertTrue(Math.round((OldPrice - (OldPrice * Percent) / 100) * 100.0) / 100.0 == CurrentPrice,
                 "ფასდაკლების შემოწმება");
         return this;
     }

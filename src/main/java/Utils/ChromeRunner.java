@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.sleep;
 
 public class ChromeRunner {
 
-    @BeforeMethod (description = "ბრაუზერის გამართვა და გახსნა")
+    @BeforeMethod(description = "ბრაუზერის გამართვა და გახსნა")
     public void setup() {
         open("https://booksale.ge/");
         Configuration.browserSize = "1920x1080";

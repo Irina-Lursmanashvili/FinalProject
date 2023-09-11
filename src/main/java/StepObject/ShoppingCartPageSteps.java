@@ -89,7 +89,7 @@ public class ShoppingCartPageSteps extends ShoppingCartPage {
     }
 
     @Step("საკურიერო მომსახურების საფასურის დათვლა")
-    public ShoppingCartPageSteps CheckcourierservicePrice() {
+    public ShoppingCartPageSteps CheckCourierServicePrice() {
 
         float sum = 0;
         for (int i = 0; i < BooksPrice.size(); i++) {

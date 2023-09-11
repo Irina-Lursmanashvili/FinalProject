@@ -50,7 +50,7 @@ public class ShoppingCartTest extends ChromeRunner {
                 .ClosePopUp()
                 .GoToShoppingCartPage()
                 .CheckSum()
-                .CheckcourierservicePrice()
+                .CheckCourierServicePrice()
                 .DeleteItems();
     }
 }

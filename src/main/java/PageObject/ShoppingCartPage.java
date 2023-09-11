@@ -21,7 +21,7 @@ public class ShoppingCartPage {
             addToCartTwo = $(byAttribute("data-book-id", "1370")),
             GoToShoppingCart = $(".fa-shopping-cart");
 
-   public ElementsCollection BooksPrice = $$(".price");
-   public ElementsCollection deleteItems = $$(".delete-item");
+    public ElementsCollection BooksPrice = $$(".price");
+    public ElementsCollection deleteItems = $$(".delete-item");
 
 }
