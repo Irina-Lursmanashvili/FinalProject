@@ -14,19 +14,11 @@ public class RegistrationPageTest extends ChromeRunner {
     RegistrationPageSteps registrationPageSteps = new RegistrationPageSteps();
 
     @Test
-    @Description("ქეისი 1- რეგისტრაციის შემოწმება სწორი მონაცემებით")
+    @Description("ქეისი 1- რეგისტრაციის გვერდზე მობილურის ნომრით ვალიდაცია")
     @Severity(SeverityLevel.BLOCKER)
     public void RegistrationCheck() {
         registrationPageSteps.GoToRegistrationPage()
-                .fillName(firstName)
-                .fillSurname(surname)
-                .fillBirthDate(birthDate)
-                .fillEmail(email)
-                .fillPhoneNumber(phoneNumber)
-                .fillPassword(RegistrationPassword)
-                .fillConfirmPassword(confirmPassword)
-                .fillAgreeTerms()
-                .ClickRegistrationButton();
+                .fillPhoneNumber(phoneNumber);
         Assert.assertEquals(registrationPageSteps.phoneNumberInPut.getValue(), phoneNumber,
                 "მობილური ნომრის ვალიდაცია");
     }
@@ -48,6 +40,4 @@ public class RegistrationPageTest extends ChromeRunner {
         Assert.assertTrue(registrationPageSteps.ErrorMessagePassword.is(Condition.visible),
                 "პაროლის არასწორი მონაცემით დადასტურება");
     }
-
-
 }
